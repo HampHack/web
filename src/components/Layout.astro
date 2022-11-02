@@ -1,0 +1,98 @@
+---
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/Icon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <style is:global>
+            .animated-underline {
+                @apply bg-gradient-to-r dark:from-green-500 dark:to-green-600 from-blue-700 to-blue-800  bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] motion-reduce:bg-[length:100%_6px] motion-reduce:transition-none duration-500 motion-safe:hover:bg-[length:100%_6px] motion-safe:group-hover:bg-[length:100%_6px];
+            }
+        </style>
+        <title>HampHack</title>
+    </head>
+    <body
+        class="dark:bg-black transition-colors duration-200 flex flex-col h-screen justify-between"
+    >
+        <header
+            class="md:px-0 px-8 py-12 flex w-full justify-center items-center"
+        >
+            <div class="flex max-w-7xl w-full items-center justify-between">
+                <a href="/" aria-label="Homepage">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 1080 1080"
+                        class="h-16"
+                        aria-label="HampHack Logo"
+                    >
+                        <g id="a">
+                            <path
+                                class="dark:fill-white fill-black"
+                                d="M565.28,237.82V842.42h-189.58v-235.69H195.51v235.69H5.93V237.82H195.51v217.76h180.19V237.82h189.58Z"
+                            ></path>
+                            <path
+                                class="fill-green"
+                                d="M1058.77,464.34h-155.52c-8.44,0-15.28-6.84-15.28-15.28V253.97c0-15.54-20.5-21.15-28.42-7.78l-205.32,346.65c-6.03,10.18,1.31,23.06,13.14,23.06h155.52c8.44,0,15.28,6.84,15.28,15.28v195.09c0,15.54,20.5,21.15,28.42,7.78l205.32-346.65c6.03-10.18-1.31-23.06-13.14-23.06Z"
+                            ></path>
+                        </g>
+                    </svg>
+                </a>
+
+                <a
+                    href="/register"
+                    class="font-bold text-3xl dark:text-white animated-underline"
+                    aria-label="Register"
+                >
+                    Register
+                </a>
+            </div>
+        </header>
+
+        <main class="space-y-8">
+            <slot />
+        </main>
+
+        <footer
+            class="flex py-4 mt-8 px-4 dark:bg-black-400 bg-gray-200 justify-center"
+        >
+            <div
+                class="grid md:grid-cols-5 gap-4 justify-between items-center w-full max-w-7xl"
+            >
+                <img
+                    src="/Icon.svg"
+                    class="md:h-12 h-8 transition hover:rotate-180 duration-200 justify-self-center md:justify-self-start"
+                    alt="HampHack Lightning Bolt"
+                />
+
+                <p
+                    class="dark:text-white md:col-span-3 text-center text-black text-sm"
+                >
+                    Fiscally sponsored by
+                    <a
+                        class="dark:text-green text-blue-800 animated-underline"
+                        href="https://the.hackfoundation.org/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        The Hack Foundation
+                    </a>. Nonprofit EIN: 81-2908499.
+                </p>
+
+                <p
+                    class="dark:text-white text-black text-sm md:text-right text-center"
+                >
+                    © 2023 HampHack. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
