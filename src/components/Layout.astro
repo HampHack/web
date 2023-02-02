@@ -68,23 +68,12 @@ import { SEO } from "astro-seo";
                 </a>
 
                 <div class="flex space-x-8">
-                    <a
-                        href="https://bank.hackclub.com/donations/start/hamphack"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="font-bold text-3xl dark:text-white animated-underline"
-                        aria-label="Donate"
-                    >
-                        Donate
-                    </a>
-
-                    <a
-                        href="/register"
-                        class="font-bold text-3xl dark:text-white animated-underline"
+                    <p
+                        class="font-bold text-3xl dark:text-white animated-underline cursor-not-allowed"
                         aria-label="Register"
                     >
-                        Register
-                    </a>
+                        Register (soon)
+                    </p>
                 </div>
             </div>
         </header>
@@ -97,7 +86,7 @@ import { SEO } from "astro-seo";
             class="flex py-4 mt-8 px-4 dark:bg-black-400 bg-gray-200 justify-center"
         >
             <div
-                class="grid md:grid-cols-5 gap-4 justify-between items-center w-full max-w-7xl"
+                class="flex gap-4 justify-between items-center w-full max-w-7xl"
             >
                 <img
                     src="/Icon.svg"
@@ -106,23 +95,9 @@ import { SEO } from "astro-seo";
                 />
 
                 <p
-                    class="dark:text-white md:col-span-3 text-center text-black text-sm"
-                >
-                    Fiscally sponsored by
-                    <a
-                        class="dark:text-green text-blue-800 animated-underline"
-                        href="https://the.hackfoundation.org/"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        The Hack Foundation
-                    </a>. Nonprofit EIN: 81-2908499.
-                </p>
-
-                <p
                     class="dark:text-white text-black text-sm md:text-right text-center"
                 >
-                    © 2023 HampHack. All rights reserved.
+                    © {new Date().getFullYear()} HampHack. All rights reserved.
                 </p>
             </div>
         </footer>
