@@ -1,4 +1,5 @@
 ---
+import "react-image-gallery/styles/css/image-gallery.css";
 import {
     PaintBrushIcon,
     CodeBracketIcon,
@@ -9,6 +10,7 @@ import {
     QuestionMarkCircleIcon,
 } from "@heroicons/react/24/solid/index.js";
 import Layout from "../components/Layout.astro";
+import ImageGallery from "react-image-gallery";
 const Info = ["72 hours", "April 21-23", "Hampshire College"];
 const fields = [
     {
@@ -45,6 +47,14 @@ const basics = [
         link: "https://www.hampshire.edu/campus-map",
     },
 ];
+
+const images = await Astro.glob("../../public/img/*.jpg");
+
+const items = images.map(({ default: image }) => ({
+    // remove the public/ part of the path
+    original: image.replace("public/", ""),
+    thumbnail: image.replace("public/", ""),
+}));
 ---
 
 <Layout>
@@ -90,6 +100,16 @@ const basics = [
                 }
             </ul>
         </div>
+    </section>
+
+    <section id="slideshow">
+        <ImageGallery
+            items={items}
+            autoPlay={true}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            client:load
+        />
     </section>
 
     <section
