@@ -27,6 +27,7 @@
     "react-dom": "^18.0.0",
     "react-hot-toast": "^2.4.0",
     "react-image-gallery": "^1.2.11",
+    "react-responsive-carousel": "^3.2.23",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
