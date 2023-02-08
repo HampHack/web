@@ -1,45 +1,36 @@
-# Astro Starter Kit: Minimal
+# HampHack Web
+## Website for HampHack
 
-```
-npm create astro@latest -- --template minimal
-```
+🌐 - [Visit](https://hamphack.hampshire.edu)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+## Contributing
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Clone the repository:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+    $ git clone https://github.com/HampHack/web.git
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Install packages:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+    $ yarn
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+_OR_
 
-## 🧞 Commands
+```bash
+    $ npm install
+```
 
-All commands are run from the root of the project, from a terminal:
+Start:
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+```bash
+    $ yarn dev
+```
 
-## 👀 Want to learn more?
+_OR_
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+    $ npm run dev
+```
