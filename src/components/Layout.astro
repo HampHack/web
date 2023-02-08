@@ -31,9 +31,19 @@ import { SEO } from "astro-seo";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;900&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;900&display=swap"
+      /></noscript
+    >
+
     <style is:global>
       .animated-underline {
         @apply bg-gradient-to-r dark:from-green-500 dark:to-green-600 from-blue-700 to-blue-800  bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] motion-reduce:bg-[length:100%_6px] motion-reduce:transition-none duration-500 motion-safe:hover:bg-[length:100%_6px] motion-safe:group-hover:bg-[length:100%_6px];
@@ -85,11 +95,28 @@ import { SEO } from "astro-seo";
       class="flex py-4 mt-8 px-4 dark:bg-black-400 bg-gray-200 justify-center"
     >
       <div class="flex gap-4 justify-between items-center w-full max-w-7xl">
-        <img
-          src="/Icon.svg"
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1080 1080"
           class="md:h-12 h-8 transition hover:rotate-180 duration-200 justify-self-center md:justify-self-start"
-          alt="HampHack Lightning Bolt"
-        />
+          aria-label="HampHack Lightning Bolt"
+        >
+          <defs>
+            <style>
+              .c {
+                fill: #61ff61;
+              }
+            </style>
+          </defs>
+          <g id="a">
+            <path
+              class="c"
+              d="M890.57,404.25h-278.6c-15.11,0-27.36-12.25-27.36-27.36V27.41c0-27.84-36.72-37.89-50.91-13.95L165.89,634.44c-10.8,18.24,2.34,41.31,23.54,41.31H468.03c15.11,0,27.36,12.25,27.36,27.36v349.48c0,27.84,36.72,37.89,50.91,13.95L914.11,445.56c10.8-18.24-2.34-41.31-23.54-41.31Z"
+            >
+            </path>
+          </g>
+          <g id="b"></g>
+        </svg>
 
         <p class="dark:text-white text-black text-sm md:text-right text-center">
           © {new Date().getFullYear()} HampHack. All rights reserved.
