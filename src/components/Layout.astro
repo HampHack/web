@@ -2,7 +2,7 @@
 import { SEO } from "astro-seo";
 ---
 
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/Icon.svg" />
@@ -49,6 +49,19 @@ import { SEO } from "astro-seo";
         @apply bg-gradient-to-r dark:from-green-500 dark:to-green-600 from-blue-700 to-blue-800  bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] motion-reduce:bg-[length:100%_6px] motion-reduce:transition-none duration-500 motion-safe:hover:bg-[length:100%_6px] motion-safe:group-hover:bg-[length:100%_6px];
       }
     </style>
+
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
   <body
     class="dark:bg-black transition-colors duration-200 flex flex-col h-screen justify-between"
