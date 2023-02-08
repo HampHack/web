@@ -1,5 +1,4 @@
 ---
-import "react-image-gallery/styles/css/image-gallery.css";
 import {
   PaintBrushIcon,
   CodeBracketIcon,
@@ -10,8 +9,9 @@ import {
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/solid/index.js";
 import Layout from "../components/Layout.astro";
-// import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { readdirSync } from "node:fs";
+import sharp from "sharp";
+
 const Info = ["72 hours", "April 21-23", "Hampshire College"];
 const fields = [
   {
@@ -49,7 +49,26 @@ const basics = [
   },
 ];
 
-// const images = await Astro.glob("../../public/img/*.jpg");
+const files = readdirSync("./public/img");
+const images = [];
+for (const file of files) {
+  const img = sharp(`./public/img/${file}`);
+  const { width, height } = await img.metadata();
+
+  if (!width || !height) continue;
+
+  if (width > height) {
+    images.push({
+      image: file,
+      type: "horizontal",
+    });
+  } else {
+    images.push({
+      image: file,
+      type: "vertical",
+    });
+  }
+}
 ---
 
 <Layout>
@@ -97,16 +116,21 @@ const basics = [
     </div>
   </section>
 
-  <section id="slideshow">
-    <!-- <Carousel>
-      {
-        images.map(({ default: image }, index) => (
-          <div key={index}>
-            <img src={image} />
-          </div>
-        ))
-      }
-    </Carousel> -->
+  <section
+    id="gallery"
+    class="grid md:grid-cols-3 grid-cols-2 gap-3 md:px-16 px-4"
+  >
+    {
+      images.map(({ image, type }) => (
+        <img
+          src={`/img/${image}`}
+          class={`w-full h-full object-cover ${
+            type === "vertical" ? "md:row-span-2 row-span-1" : ""
+          } justify-self-center md:col-span-1 col-span-2`}
+          alt="HampHack Gallery Image"
+        />
+      ))
+    }
   </section>
 
   <section
