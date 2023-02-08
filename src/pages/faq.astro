@@ -3,14 +3,24 @@ import Layout from "../components/Layout.astro";
 ---
 
 <Layout>
-    <h1
-        class="flex w-full text-center justify-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
+  <h1
+    class="flex w-full text-center justify-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
+  >
+    Soon
+    <img
+      src="/Icon.svg"
+      class="md:h-12 h-8 transition hover:rotate-180 duration-200"
+      alt="HampHack Lightning Bolt"
+    />
+  </h1>
+
+  <p class="text-white font-bold text-center text-xl">
+    If you have any questions, please contact us at
+    <a
+      href="mailto:hamphack@hampshire.edu"
+      class="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200"
     >
-        Soon
-        <img
-            src="/Icon.svg"
-            class="md:h-12 h-8 transition hover:rotate-180 duration-200"
-            alt="HampHack Lightning Bolt"
-        />
-    </h1>
+      hamphack@hampshire.edu
+    </a>
+  </p>
 </Layout>
