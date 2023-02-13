@@ -1,12 +1,12 @@
 ---
 import {
-    PaintBrushIcon,
-    CodeBracketIcon,
-    WrenchScrewdriverIcon,
-    TrophyIcon,
-    CalendarDaysIcon,
-    MapIcon,
-    QuestionMarkCircleIcon,
+  PaintBrushIcon,
+  CodeBracketIcon,
+  WrenchScrewdriverIcon,
+  TrophyIcon,
+  CalendarDaysIcon,
+  MapIcon,
+  QuestionMarkCircleIcon,
 } from "@heroicons/react/24/solid/index.js";
 import Layout from "../components/Layout.astro";
 import { readdirSync } from "node:fs";
@@ -14,246 +14,244 @@ import sharp from "sharp";
 
 const Info = ["72 hours", "April 21-23", "Hampshire College"];
 const fields = [
-    {
-        Icon: PaintBrushIcon,
-        title: "Art",
-    },
-    {
-        Icon: CodeBracketIcon,
-        title: "Coding",
-    },
-    {
-        Icon: WrenchScrewdriverIcon,
-        title: "Engineering",
-    },
+  {
+    Icon: PaintBrushIcon,
+    title: "Art",
+  },
+  {
+    Icon: CodeBracketIcon,
+    title: "Coding",
+  },
+  {
+    Icon: WrenchScrewdriverIcon,
+    title: "Engineering",
+  },
 ];
 
 const basics = [
-    {
-        Icon: TrophyIcon,
-        title: "Prizes",
-        body: "HampHack isn't competitive, but who doesn't like prizes?",
-        link: "/prizes",
-    },
-    {
-        Icon: CalendarDaysIcon,
-        title: "Schedule",
-        body: "Visit our schedule and see what workshops you could attend!",
-        link: "/schedule",
-    },
-    {
-        Icon: MapIcon,
-        title: "Map",
-        body: "You probably won't be lost at Hampshire, but we have your back!",
-        link: "https://www.hampshire.edu/campus-map",
-    },
+  {
+    Icon: TrophyIcon,
+    title: "Prizes",
+    body: "HampHack isn't competitive, but who doesn't like prizes?",
+    link: "/prizes",
+  },
+  {
+    Icon: CalendarDaysIcon,
+    title: "Schedule",
+    body: "Visit our schedule and see what workshops you could attend!",
+    link: "/schedule",
+  },
+  {
+    Icon: MapIcon,
+    title: "Map",
+    body: "You probably won't be lost at Hampshire, but we have your back!",
+    link: "https://www.hampshire.edu/campus-map",
+  },
 ];
 
 const files = readdirSync("./public/img");
 const images = [];
 for (const file of files) {
-    const img = sharp(`./public/img/${file}`);
-    const { width, height } = await img.metadata();
+  const img = sharp(`./public/img/${file}`);
+  const { width, height } = await img.metadata();
 
-    if (!width || !height) continue;
+  if (!width || !height) continue;
 
-    if (width > height) {
-        images.push({
-            image: file,
-            type: "horizontal",
-        });
-    } else {
-        images.push({
-            image: file,
-            type: "vertical",
-        });
-    }
+  if (width > height) {
+    images.push({
+      image: file,
+      type: "horizontal",
+    });
+  } else {
+    images.push({
+      image: file,
+      type: "vertical",
+    });
+  }
 }
 ---
 
 <Layout>
-    <section
-        class="flex flex-wrap justify-center items-center w-full md:py-56 py-12 space-y-10 md:px-16"
+  <section
+    class="flex flex-wrap justify-center items-center w-full md:py-56 py-12 space-y-10 md:px-16"
+  >
+    <h1
+      class="flex w-full text-center justify-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
     >
-        <h1
-            class="flex w-full text-center justify-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
-        >
-            Hamp
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1080 1080"
-                class="md:h-12 h-8 transition hover:rotate-180 duration-200"
-                aria-label="HampHack Lightning Bolt"
-            >
-                <defs>
-                    <style>
-                        .c {
-                            fill: #61ff61;
-                        }
-                    </style>
-                </defs>
-                <g id="a">
-                    <path
-                        class="c"
-                        d="M890.57,404.25h-278.6c-15.11,0-27.36-12.25-27.36-27.36V27.41c0-27.84-36.72-37.89-50.91-13.95L165.89,634.44c-10.8,18.24,2.34,41.31,23.54,41.31H468.03c15.11,0,27.36,12.25,27.36,27.36v349.48c0,27.84,36.72,37.89,50.91,13.95L914.11,445.56c10.8-18.24-2.34-41.31-23.54-41.31Z"
-                    >
-                    </path>
-                </g>
-                <g id="b"></g>
-            </svg>
-            Hack
-        </h1>
+      Hamp
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1080 1080"
+        class="md:h-12 h-8 transition hover:rotate-180 duration-200"
+        aria-label="HampHack Lightning Bolt"
+      >
+        <defs>
+          <style>
+            .c {
+              fill: #61ff61;
+            }
+          </style>
+        </defs>
+        <g id="a">
+          <path
+            class="c"
+            d="M890.57,404.25h-278.6c-15.11,0-27.36-12.25-27.36-27.36V27.41c0-27.84-36.72-37.89-50.91-13.95L165.89,634.44c-10.8,18.24,2.34,41.31,23.54,41.31H468.03c15.11,0,27.36,12.25,27.36,27.36v349.48c0,27.84,36.72,37.89,50.91,13.95L914.11,445.56c10.8-18.24-2.34-41.31-23.54-41.31Z"
+          >
+          </path>
+        </g>
+        <g id="b"></g>
+      </svg>
+      Hack
+    </h1>
 
+    <h2
+      class="font-bold w-full md:text-4xl text-2xl text-center dark:text-white text-black"
+    >
+      The Pioneer Valley&apos;s
+      <span class="animated-underline dark:text-green-50">only</span>
+      Interdisciplinary Hackathon
+    </h2>
+
+    <h3
+      class="font-semibold md:text-3xl text-xl text-center dark:text-white text-black"
+    >
+      Come together. Make things. Meet people.
+    </h3>
+
+    <div class="flex justify-center w-full">
+      <ul
+        class="grid md:grid-cols-3 max-w-3xl md:divide-x-2 divide-y-2 md:divide-y-0 divide-green w-full justify-center"
+      >
+        {
+          Info.map((i) => (
+            <li class="font-semibold md:px-3 py-3 md:py-0 text-xl text-center dark:text-white text-black">
+              <span class="animated-underline">{i}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section
+    id="gallery"
+    class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
+  >
+    <div class="grid md:grid-cols-3 grid-cols-2 gap-3 max-w-7xl">
+      {
+        images.map(({ image, type }) => (
+          <img
+            src={`/img/${image}`}
+            class={`w-full h-full object-cover ${
+              type === "vertical" ? "md:row-span-2 row-span-1" : ""
+            } justify-self-center md:col-span-1 col-span-2`}
+            alt="HampHack Gallery Image"
+            loading="lazy"
+            decoding="async"
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section
+    class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
+  >
+    <h1
+      class="font-bold text-3xl dark:text-white text-black animated-underline"
+    >
+      Interdisciplinary?
+    </h1>
+
+    <div class="w-full flex justify-center">
+      <h2
+        class="font-medium text-xl text-center max-w-xl dark:text-white text-black"
+      >
+        We believe the best ideas come from all fields. So, we connect people
+        from all kinds of STEAM fields. No experience required.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 w-full max-w-7xl">
+      {
+        fields.map((field) => (
+          <div class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
+            <field.Icon className="dark:text-white text-black max-h-24 w-full" />
+            <h3 class="font-semibold text-4xl dark:text-white text-black">
+              {field.title}
+            </h3>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section
+    class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
+  >
+    <h1
+      class="font-bold text-3xl w-full text-center dark:text-white text-black"
+    >
+      <span class="animated-underline">Make stuff, win stuff</span>
+    </h1>
+
+    <div class="grid md:grid-cols-3 gap-8 w-full max-w-7xl">
+      {
+        basics.map((basic) => (
+          <div class="flex flex-wrap justify-center items-center gap-y-4 px-4 dark:bg-black-400 bg-gray-200 py-8">
+            <basic.Icon className="dark:text-white text-black max-h-24 w-full" />
+            <h2 class="font-semibold text-4xl dark:text-white text-black">
+              {basic.title}
+            </h2>
+
+            <p class="font-medium text-xl text-center max-w-xl dark:text-white text-black">
+              {basic.body}
+            </p>
+
+            <a
+              href={basic.link}
+              class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
+            >
+              Visit
+            </a>
+          </div>
+        ))
+      }
+
+      <div
+        class="flex flex-wrap col-span-full justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8"
+      >
+        <QuestionMarkCircleIcon
+          className="dark:text-white text-black max-h-32 w-full"
+        />
         <h2
-            class="font-bold w-full md:text-4xl text-2xl text-center dark:text-white text-black"
+          class="font-semibold text-4xl w-full text-center dark:text-white text-black"
         >
-            The Pioneer Valley&apos;s
-            <span class="animated-underline dark:text-green-50">only</span>
-            Interdisciplinary Hackathon
+          Questions
         </h2>
 
-        <h3
-            class="font-semibold md:text-3xl text-xl text-center dark:text-white text-black"
+        <p
+          class="font-medium text-xl text-center max-w-xl dark:text-white text-black"
         >
-            Come together. Make things. Meet people.
-        </h3>
+          Visit our FAQ, or send us an email. We don't bite!
+        </p>
 
-        <div class="flex justify-center w-full">
-            <ul
-                class="grid md:grid-cols-3 max-w-3xl md:divide-x-2 divide-y-2 md:divide-y-0 divide-green w-full justify-center"
-            >
-                {
-                    Info.map((i) => (
-                        <li class="font-semibold md:px-3 py-3 md:py-0 text-xl text-center dark:text-white text-black">
-                            <span class="animated-underline">{i}</span>
-                        </li>
-                    ))
-                }
-            </ul>
+        <div class="flex w-full space-x-4 justify-center">
+          <a
+            href="/faq"
+            class="font-medium text-lg text-center dark:text-green text-blue-800"
+          >
+            <span class="animated-underline">Visit</span>
+          </a>
+
+          <a
+            href="mailto:hamphack@hampshire.edu"
+            class="font-medium text-lg text-center dark:text-green text-blue-800"
+          >
+            <span class="animated-underline">Email</span>
+          </a>
         </div>
-    </section>
-
-    <section
-        id="gallery"
-        class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
-    >
-        <div class="grid md:grid-cols-3 grid-cols-2 gap-3 max-w-7xl">
-            {
-                images.map(({ image, type }) => (
-                    <img
-                        src={`/img/${image}`}
-                        class={`w-full h-full object-cover ${
-                            type === "vertical"
-                                ? "md:row-span-2 row-span-1"
-                                : ""
-                        } justify-self-center md:col-span-1 col-span-2`}
-                        alt="HampHack Gallery Image"
-                        loading="lazy"
-                        decoding="async"
-                    />
-                ))
-            }
-        </div>
-    </section>
-
-    <section
-        class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
-    >
-        <h1
-            class="font-bold text-3xl dark:text-white text-black animated-underline"
-        >
-            Interdisciplinary?
-        </h1>
-
-        <div class="w-full flex justify-center">
-            <h2
-                class="font-medium text-xl text-center max-w-xl dark:text-white text-black"
-            >
-                We believe the best ideas come from all fields. So, we connect
-                people from all kinds of STEAM fields.
-            </h2>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 w-full max-w-7xl">
-            {
-                fields.map((field) => (
-                    <div class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
-                        <field.Icon className="dark:text-white text-black max-h-24 w-full" />
-                        <h3 class="font-semibold text-4xl dark:text-white text-black">
-                            {field.title}
-                        </h3>
-                    </div>
-                ))
-            }
-        </div>
-    </section>
-
-    <section
-        class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
-    >
-        <h1
-            class="font-bold text-3xl w-full text-center dark:text-white text-black"
-        >
-            <span class="animated-underline">Make stuff, win stuff</span>
-        </h1>
-
-        <div class="grid md:grid-cols-3 gap-8 w-full max-w-7xl">
-            {
-                basics.map((basic) => (
-                    <div class="flex flex-wrap justify-center items-center gap-y-4 px-4 dark:bg-black-400 bg-gray-200 py-8">
-                        <basic.Icon className="dark:text-white text-black max-h-24 w-full" />
-                        <h2 class="font-semibold text-4xl dark:text-white text-black">
-                            {basic.title}
-                        </h2>
-
-                        <p class="font-medium text-xl text-center max-w-xl dark:text-white text-black">
-                            {basic.body}
-                        </p>
-
-                        <a
-                            href={basic.link}
-                            class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
-                        >
-                            Visit
-                        </a>
-                    </div>
-                ))
-            }
-
-            <div
-                class="flex flex-wrap col-span-full justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8"
-            >
-                <QuestionMarkCircleIcon
-                    className="dark:text-white text-black max-h-32 w-full"
-                />
-                <h2
-                    class="font-semibold text-4xl w-full text-center dark:text-white text-black"
-                >
-                    Questions
-                </h2>
-
-                <p
-                    class="font-medium text-xl text-center max-w-xl dark:text-white text-black"
-                >
-                    Visit our FAQ, or send us an email. We don't bite!
-                </p>
-
-                <div class="flex w-full space-x-4 justify-center">
-                    <a
-                        href="/faq"
-                        class="font-medium text-lg text-center dark:text-green text-blue-800"
-                    >
-                        <span class="animated-underline">Visit</span>
-                    </a>
-
-                    <a
-                        href="mailto:hamphack@hampshire.edu"
-                        class="font-medium text-lg text-center dark:text-green text-blue-800"
-                    >
-                        <span class="animated-underline">Email</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </Layout>
