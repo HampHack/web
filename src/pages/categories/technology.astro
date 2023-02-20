@@ -1,0 +1,46 @@
+---
+import Layout from "../../components/Layout.astro";
+
+const categories = [
+  "AI",
+  "ML",
+  "Metaverse",
+  "AR / VR",
+  "Decentralization",
+  "Web / App design",
+];
+---
+
+<Layout>
+  <article
+    class="dark:text-white text-black space-y-2 mx-auto max-w-7xl px-8 md:px-16"
+  >
+    <h1
+      class="flex w-full text-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
+    >
+      Technology
+      <img
+        src="/Icon.svg"
+        class="md:h-12 h-8 transition hover:rotate-180 duration-200"
+        alt="HampHack Lightning Bolt"
+      />
+    </h1>
+
+    <p>
+      Technology is all around us. HampHack challenges those to create new
+      things to solve unique problems.
+    </p>
+
+    <p>
+      We are looking for projects that use technology to solve problems. This
+      could be a website, mobile app, or even a hardware project. We are looking
+      for projects that are creative and unique.
+    </p>
+
+    <p>Here&apos;s some categories to get you started:</p>
+
+    <ul class="list-disc list-inside px-4">
+      {categories.map((category) => <li>{category}</li>)}
+    </ul>
+  </article>
+</Layout>

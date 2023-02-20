@@ -17,14 +17,17 @@ const fields = [
   {
     Icon: PaintBrushIcon,
     title: "Art",
+    link: "/categories/art",
   },
   {
     Icon: CodeBracketIcon,
-    title: "Coding",
+    title: "Technology",
+    link: "/categories/technology",
   },
   {
     Icon: WrenchScrewdriverIcon,
     title: "Engineering",
+    link: "/categories/engineering",
   },
 ];
 
@@ -177,9 +180,16 @@ for (const file of files) {
         fields.map((field) => (
           <div class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
             <field.Icon className="dark:text-white text-black max-h-24 w-full" />
-            <h3 class="font-semibold text-4xl dark:text-white text-black">
+            <h3 class="font-semibold w-full text-center text-4xl dark:text-white text-black">
               {field.title}
             </h3>
+
+            <a
+              href={field.link}
+              class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
+            >
+              Read More
+            </a>
           </div>
         ))
       }
