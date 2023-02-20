@@ -1,16 +1,146 @@
 ---
 import Layout from "../components/Layout.astro";
+import Airtable from "airtable";
+
+const table = new Airtable({
+  apiKey: import.meta.env.AIRTABLE_API_KEY,
+}).base(import.meta.env.AIRTABLE_BASE_ID)("Schedule");
+
+const schedule = await table
+  .select({
+    view: "Grid view",
+  })
+  .all();
+
+const parsedSchedule = schedule.map((event) => {
+  const { fields } = event;
+  return {
+    name: fields.Name,
+    type: fields.Type,
+    start: new Date(fields.Start as string),
+    end: new Date(fields.End as string),
+    notes: fields["Public Notes"],
+  };
+});
 ---
 
 <Layout>
-    <h1
-        class="flex w-full text-center justify-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
-    >
-        Soon
-        <img
-            src="/Icon.svg"
-            class="md:h-12 h-8 transition hover:rotate-180 duration-200"
-            alt="HampHack Lightning Bolt"
-        />
-    </h1>
+  <h1
+    class="flex w-full text-center justify-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
+  >
+    Schedule
+    <img
+      src="/Icon.svg"
+      class="md:h-12 h-8 transition hover:rotate-180 duration-200"
+      alt="HampHack Lightning Bolt"
+    />
+  </h1>
+
+  <p class="dark:text-white text-black font-semibold text-center">
+    Times are in Eastern Time (ET). All times are subject to change. Please
+    check back for updates.
+  </p>
+
+  <section
+    id="schedule"
+    class="dark:text-white text-black space-y-2 mx-auto max-w-7xl px-8 md:px-16"
+  >
+    <div class="grid grid-cols-3">
+      <div class="flex flex-col space-y-2">
+        <h2 class="text-2xl font-bold">Friday, April 21st</h2>
+
+        {
+          parsedSchedule
+            .filter((event) => event.start.getDay() === 5)
+            .sort((a, b) => a.start.getTime() - b.start.getTime())
+            .map((event) => (
+              <div class="flex flex-col space-y-2">
+                <div class="flex flex-row space-x-2">
+                  <div class="flex flex-col space-y-2">
+                    <h3 class="text-xl font-bold">{event.name}</h3>
+                    <p class="text-sm font-semibold">
+                      {event.start.toLocaleTimeString("en-US", {
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
+                      {" - "}
+                      {event.end.toLocaleTimeString("en-US", {
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
+                    </p>
+                  </div>
+                  <p class="text-sm font-semibold">{event.type}</p>
+                </div>
+                <p class="text-sm">{event.notes}</p>
+              </div>
+            ))
+        }
+      </div>
+
+      <div class="flex flex-col space-y-2">
+        <h2 class="text-2xl font-bold">Saturady, April 22nd</h2>
+
+        {
+          parsedSchedule
+            .filter((event) => event.start.getDay() === 6)
+            .sort((a, b) => a.start.getTime() - b.start.getTime())
+            .map((event) => (
+              <div class="flex flex-col space-y-2">
+                <div class="flex flex-row space-x-2">
+                  <div class="flex flex-col space-y-2">
+                    <h3 class="text-xl font-bold">{event.name}</h3>
+                    <p class="text-sm font-semibold">
+                      {event.start.toLocaleTimeString("en-US", {
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
+                      {" - "}
+                      {event.end.toLocaleTimeString("en-US", {
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
+                    </p>
+                  </div>
+                  <p class="text-sm font-semibold">{event.type}</p>
+                </div>
+                <p class="text-sm">{event.notes}</p>
+              </div>
+            ))
+        }
+      </div>
+
+      <div class="flex flex-col space-y-2">
+        <h2 class="text-2xl font-bold">Sunday, April 23rd</h2>
+
+        {
+          parsedSchedule
+            .filter((event) => event.start.getDay() === 0)
+            .sort((a, b) => a.start.getTime() - b.start.getTime())
+            .map((event) => (
+              <div class="flex flex-col space-y-2">
+                <div class="flex flex-row space-x-2">
+                  <div class="flex flex-col space-y-2">
+                    <h3 class="text-xl font-bold">{event.name}</h3>
+                    <p class="text-sm font-semibold">
+                      {event.start.toLocaleTimeString("en-US", {
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
+                      {" - "}
+                      {event.end.toLocaleTimeString("en-US", {
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
+                    </p>
+                  </div>
+                  <p class="text-sm font-semibold">{event.type}</p>
+                </div>
+                <p class="text-sm">{event.notes}</p>
+              </div>
+            ))
+        }
+      </div>
+    </div>
+  </section>
 </Layout>
