@@ -8,6 +8,18 @@ import react from "@astrojs/react";
 import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
+
+// https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), robotsTxt()],
+  integrations: [
+    tailwind(),
+    react(),
+    robotsTxt({
+      sitemap: "https://hamphack.hampshire.edu/sitemap.xml",
+    }),
+    sitemap(),
+  ],
 });
