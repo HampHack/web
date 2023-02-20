@@ -22,6 +22,45 @@ const parsedSchedule = schedule.map((event) => {
     notes: fields["Public Notes"],
   };
 });
+
+// finalSchedule should be an array of objects with the following structure:
+// {
+//   day: "Friday, April 21st",
+//   events: [
+//     {
+//       name: "Opening Ceremony",
+//       type: "Event",
+//       start: "10:00 AM",
+//       end: "10:30 AM",
+//       notes: "Join us for the opening ceremony of HampHack 2021!"
+//     },
+//  ]
+// }
+const finalSchedule = parsedSchedule
+  .map((event) => {
+    const { start } = event;
+    const day = start.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+    });
+    return {
+      day,
+      events: [event],
+    };
+  })
+  .reduce((acc, curr) => {
+    const { day } = curr;
+    const existing = acc.find((event) => event.day === day);
+    if (existing) {
+      existing.events.push(...curr.events);
+    } else {
+      acc.push(curr);
+    }
+    return acc;
+  }, [] as { day: string; events: any[] }[]);
+
+console.log(finalSchedule);
 ---
 
 <Layout>
@@ -45,102 +84,41 @@ const parsedSchedule = schedule.map((event) => {
     id="schedule"
     class="dark:text-white text-black space-y-2 mx-auto max-w-7xl px-8 md:px-16"
   >
-    <div class="grid grid-cols-3">
-      <div class="flex flex-col space-y-2">
-        <h2 class="text-2xl font-bold">Friday, April 21st</h2>
+    <div class="grid md:grid-cols-3 grid-cols-1 gap-3">
+      {
+        finalSchedule.map((day) => (
+          <div class="flex flex-col space-y-4">
+            <h2 class="text-2xl font-bold">{day.day}</h2>
 
-        {
-          parsedSchedule
-            .filter((event) => event.start.getDay() === 5)
-            .sort((a, b) => a.start.getTime() - b.start.getTime())
-            .map((event) => (
-              <div class="flex flex-col space-y-2">
-                <div class="flex flex-row space-x-2">
-                  <div class="flex flex-col space-y-2">
-                    <h3 class="text-xl font-bold">{event.name}</h3>
-                    <p class="text-sm font-semibold">
-                      {event.start.toLocaleTimeString("en-US", {
-                        hour: "numeric",
-                        minute: "numeric",
-                      })}
-                      {" - "}
-                      {event.end.toLocaleTimeString("en-US", {
-                        hour: "numeric",
-                        minute: "numeric",
-                      })}
+            {day.events
+              .sort((a, b) => a.start.getTime() - b.start.getTime())
+              .map((event) => (
+                <div class="flex flex-col space-y-2 p-2 border-gray-700 border rounded-md">
+                  <div class="grid grid-cols-5">
+                    <div class="flex flex-col space-y-2 col-span-3">
+                      <h3 class="text-xl font-bold">{event.name}</h3>
+                      <p class="text-sm font-semibold">
+                        {event.start.toLocaleTimeString("en-US", {
+                          hour: "numeric",
+                          minute: "numeric",
+                        })}
+                        {" - "}
+                        {event.end.toLocaleTimeString("en-US", {
+                          hour: "numeric",
+                          minute: "numeric",
+                        })}
+                      </p>
+                    </div>
+                    <p class="text-sm font-semibold text-right col-span-2">
+                      {event.type}
                     </p>
                   </div>
-                  <p class="text-sm font-semibold">{event.type}</p>
+                  {event.notes && <p class="text-sm">{event.notes}</p>}
                 </div>
-                <p class="text-sm">{event.notes}</p>
-              </div>
-            ))
-        }
-      </div>
-
-      <div class="flex flex-col space-y-2">
-        <h2 class="text-2xl font-bold">Saturady, April 22nd</h2>
-
-        {
-          parsedSchedule
-            .filter((event) => event.start.getDay() === 6)
-            .sort((a, b) => a.start.getTime() - b.start.getTime())
-            .map((event) => (
-              <div class="flex flex-col space-y-2">
-                <div class="flex flex-row space-x-2">
-                  <div class="flex flex-col space-y-2">
-                    <h3 class="text-xl font-bold">{event.name}</h3>
-                    <p class="text-sm font-semibold">
-                      {event.start.toLocaleTimeString("en-US", {
-                        hour: "numeric",
-                        minute: "numeric",
-                      })}
-                      {" - "}
-                      {event.end.toLocaleTimeString("en-US", {
-                        hour: "numeric",
-                        minute: "numeric",
-                      })}
-                    </p>
-                  </div>
-                  <p class="text-sm font-semibold">{event.type}</p>
-                </div>
-                <p class="text-sm">{event.notes}</p>
-              </div>
-            ))
-        }
-      </div>
-
-      <div class="flex flex-col space-y-2">
-        <h2 class="text-2xl font-bold">Sunday, April 23rd</h2>
-
-        {
-          parsedSchedule
-            .filter((event) => event.start.getDay() === 0)
-            .sort((a, b) => a.start.getTime() - b.start.getTime())
-            .map((event) => (
-              <div class="flex flex-col space-y-2">
-                <div class="flex flex-row space-x-2">
-                  <div class="flex flex-col space-y-2">
-                    <h3 class="text-xl font-bold">{event.name}</h3>
-                    <p class="text-sm font-semibold">
-                      {event.start.toLocaleTimeString("en-US", {
-                        hour: "numeric",
-                        minute: "numeric",
-                      })}
-                      {" - "}
-                      {event.end.toLocaleTimeString("en-US", {
-                        hour: "numeric",
-                        minute: "numeric",
-                      })}
-                    </p>
-                  </div>
-                  <p class="text-sm font-semibold">{event.type}</p>
-                </div>
-                <p class="text-sm">{event.notes}</p>
-              </div>
-            ))
-        }
-      </div>
+              ))}
+          </div>
+        ))
+      }
     </div>
   </section>
 </Layout>
