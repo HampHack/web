@@ -14,6 +14,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://hamphack.hampshire.edu",
   integrations: [
     tailwind(),
     react(),
