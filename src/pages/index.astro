@@ -52,6 +52,35 @@ const basics = [
   },
 ];
 
+const sponsors = {
+  silver: [
+    {
+      name: "Hampshire College President's Office",
+      link: "https://www.hampshire.edu/offices/office-president",
+      image: "hampshire_pr.png",
+    },
+    {
+      name: "Hampshire College Information Technology",
+      link: "https://www.hampshire.edu/it/information-technology",
+      image: "hampshire_it.png",
+    },
+  ],
+  bronze: [
+    {
+      name: "Hampshire College SPARC",
+      link: "https://www.hampshire.edu/sparc",
+      image: "hampshire_sparc.png",
+    },
+  ],
+  other: [
+    {
+      name: "StickerMule",
+      link: "https://stickermule.com/",
+      image: "stickermule.svg",
+    },
+  ],
+};
+
 const files = readdirSync("./public/img");
 const images = [];
 for (const file of files) {
@@ -193,6 +222,117 @@ for (const file of files) {
           </div>
         ))
       }
+    </div>
+  </section>
+
+  <section
+    id="sponsors"
+    class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
+  >
+    <h1
+      class="font-bold text-3xl w-full text-center dark:text-white text-black"
+    >
+      <span class="animated-underline">Our Sponsors</span>
+    </h1>
+
+    <div class="grid md:grid-cols-3 gap-8 w-full max-w-7xl">
+      <div
+        class="flex flex-wrap md:col-span-2 justify-center items-center gap-y-4 px-4 dark:bg-black-400 bg-gray-200 py-8"
+      >
+        <h2 class="font-semibold text-4xl dark:text-white text-black">
+          Silver Sponsors
+        </h2>
+
+        <ul class="grid grid-cols-2 gap-4 w-full max-w-3xl justify-center">
+          {
+            sponsors.silver.map((sponsor) => (
+              <li class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
+                <img
+                  src={`/sponsors/${sponsor.image}`}
+                  class="w-full h-full object-contain"
+                  alt={sponsor.name}
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <a
+                  href={sponsor.link}
+                  target="_blank"
+                  class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
+                >
+                  Visit
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div
+        class="flex flex-wrap justify-center items-center gap-y-4 px-4 dark:bg-black-400 bg-gray-200 py-8"
+      >
+        <h2 class="font-semibold text-4xl dark:text-white text-black">
+          Bronze Sponsors
+        </h2>
+
+        <ul class="grid grid-cols-1 gap-4 w-full max-w-3xl justify-center">
+          {
+            sponsors.bronze.map((sponsor) => (
+              <li class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
+                <img
+                  src={`/sponsors/${sponsor.image}`}
+                  class="w-full h-full object-contain"
+                  alt={sponsor.name}
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <a
+                  href={sponsor.link}
+                  target="_blank"
+                  class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
+                >
+                  Visit
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div
+        class="flex flex-wrap col-span-full justify-center items-center gap-y-4 px-4 dark:bg-black-400 bg-gray-200 py-8"
+      >
+        <h2
+          class="font-semibold w-full text-center text-4xl dark:text-white text-black"
+        >
+          Other Sponsors
+        </h2>
+
+        <ul class="grid grid-cols-3 gap-4 w-full max-w-3xl justify-center">
+          {
+            sponsors.other.map((sponsor) => (
+              <li class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
+                <img
+                  src={`/sponsors/${sponsor.image}`}
+                  class="w-full h-full object-contain"
+                  alt={sponsor.name}
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <a
+                  href={sponsor.link}
+                  target="_blank"
+                  class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
+                >
+                  Visit
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </section>
 
