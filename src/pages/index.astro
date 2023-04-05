@@ -55,26 +55,24 @@ const basics = [
 const sponsors = {
   silver: [
     {
-      name: "Hampshire College President's Office",
-      link: "https://www.hampshire.edu/offices/office-president",
-      image: "hampshire_pr.png",
-    },
-    {
-      name: "Hampshire College Information Technology",
-      link: "https://www.hampshire.edu/it/information-technology",
-      image: "hampshire_it.png",
+      name: "Hampshire College",
+      subtext: "President's Office, Information Technology",
+      link: "https://www.hampshire.edu",
+      image: "hampshire.png",
     },
   ],
   bronze: [
     {
-      name: "Hampshire College SPARC",
-      link: "https://www.hampshire.edu/sparc",
-      image: "hampshire_sparc.png",
+      name: "Hampshire College",
+      subtext: "SPARC",
+      link: "https://www.hampshire.edu/",
+      image: "hampshire.png",
     },
   ],
   other: [
     {
       name: "StickerMule",
+      subtext: "Custom Stickers",
       link: "https://mule.to/p3za",
       image: "stickermule.svg",
     },
@@ -249,11 +247,17 @@ for (const file of files) {
               <li class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
                 <img
                   src={`/sponsors/${sponsor.image}`}
-                  class="w-full h-full object-contain"
+                  class="w-full object-contain"
                   alt={sponsor.name}
                   loading="lazy"
                   decoding="async"
                 />
+
+                {sponsor.subtext && (
+                  <h3 class="font-semibold w-full text-center text-xl dark:text-white text-black">
+                    {sponsor.subtext}
+                  </h3>
+                )}
 
                 <a
                   href={sponsor.link}
@@ -281,11 +285,17 @@ for (const file of files) {
               <li class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
                 <img
                   src={`/sponsors/${sponsor.image}`}
-                  class="w-full h-full object-contain"
+                  class="w-full  object-contain"
                   alt={sponsor.name}
                   loading="lazy"
                   decoding="async"
                 />
+
+                {sponsor.subtext && (
+                  <h3 class="font-semibold w-full text-center text-xl dark:text-white text-black">
+                    {sponsor.subtext}
+                  </h3>
+                )}
 
                 <a
                   href={sponsor.link}
@@ -315,11 +325,17 @@ for (const file of files) {
               <li class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
                 <img
                   src={`/sponsors/${sponsor.image}`}
-                  class="w-full h-full object-contain"
+                  class="w-full object-contain"
                   alt={sponsor.name}
                   loading="lazy"
                   decoding="async"
                 />
+
+                {sponsor.subtext && (
+                  <h3 class="font-semibold w-full text-center text-xl dark:text-white text-black">
+                    {sponsor.subtext}
+                  </h3>
+                )}
 
                 <a
                   href={sponsor.link}
