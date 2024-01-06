@@ -4,9 +4,13 @@ import twemoji from "twemoji";
 const Twemoji = ({
   emoji,
   className,
+  width,
+  height,
 }: {
   emoji: string;
   className: string;
+  width?: number;
+  height?: number;
 }) => (
   <span
     dangerouslySetInnerHTML={{
@@ -16,6 +20,10 @@ const Twemoji = ({
       }),
     }}
     className={className}
+    style={{
+      width: width ? width : 20,
+      height: height ? height : 20,
+    }}
   />
 );
 
