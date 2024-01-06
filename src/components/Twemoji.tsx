@@ -17,12 +17,14 @@ const Twemoji = ({
       __html: twemoji.parse(emoji, {
         folder: "svg",
         ext: ".svg",
+        className,
+        size: `${width ? width : 20}x${height ? height : 20}`,
+        attributes: () => ({
+          style: `width: ${width ? width : 20}px; height: ${
+            height ? height : 20
+          }px;`,
+        }),
       }),
-    }}
-    className={className}
-    style={{
-      width: width ? width : 20,
-      height: height ? height : 20,
     }}
   />
 );
