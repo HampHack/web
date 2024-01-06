@@ -2,35 +2,16 @@
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 import Layout from "../components/Layout.astro";
 import Twemoji from "../components/Twemoji";
-// import { readdirSync } from "node:fs";
-// import sharp from "sharp";
-
-// const files = readdirSync("./public/img");
-// const images = [];
-// for (const file of files) {
-//   const img = sharp(`./public/img/${file}`);
-//   const { width, height } = await img.metadata();
-
-//   if (!width || !height) continue;
-
-//   if (width > height) {
-//     images.push({
-//       image: file,
-//       type: "horizontal",
-//     });
-//   } else {
-//     images.push({
-//       image: file,
-//       type: "vertical",
-//     });
-//   }
-// }
 ---
 
 <Layout>
-  <header class="px-2.5 py-32 flex-col justify-center items-center gap-8 flex">
+  <div class="px-2.5 py-32 flex-col justify-center items-center gap-8 flex">
     <div class="inline-flex flex-col justify-start items-center gap-4">
-      <h1 class="relative overflow-hidden inline-block align-bottom font-mono text-8xl text-white gradient">Build Something Cool</h1>
+      <h1
+        class="relative overflow-hidden inline-block align-bottom font-mono text-8xl text-white gradient"
+      >
+        Build Something Cool
+      </h1>
       <span class="text-center text-white text-2xl font-black">at</span>
       <h1
         class="flex w-full text-center justify-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
@@ -80,78 +61,181 @@ import Twemoji from "../components/Twemoji";
       </div>
     </div>
 
-    <div class="flex-col justify-end items-center gap-2.5 inline-flex mt-36">
+    <div
+      class="flex-col justify-end items-center gap-2.5 inline-flex md:mt-36 mt-12"
+    >
       <div class="flex-col justify-center items-center gap-2 flex">
         <div class="text-white text-2xl font-normal font-mono">Read More</div>
         <ArrowDownIcon className="text-white h-6 w-6 animate-bounce" />
       </div>
     </div>
 
-    <div class="px-2.5 py-16 flex-col justify-start items-center gap-12 inline-flex">
+    <div
+      class="px-2.5 py-16 flex-col justify-start items-center gap-12 inline-flex"
+    >
       <div class="flex-col justify-start items-center gap-3 flex">
-          <span class="text-center text-white text-2xl font-black">HampHack is</span>
-          <h1 class="text-white text-7xl font-normal font-mono">An Interdisciplinary Creative Event</h1>
+        <span class="text-center text-white text-2xl font-black"
+          >HampHack is</span
+        >
+        <h1
+          class="text-white md:text-7xl text-4xl text-wrap font-normal font-mono text-center w-screen"
+        >
+          An Interdisciplinary Creative Event
+        </h1>
       </div>
-      <div class="self-stretch p-2.5 justify-center items-start gap-2.5 inline-flex">
-          <div class="p-10 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
-              <Twemoji className="w-32 h-32" emoji="🤝" />
-              <div class="text-center text-white text-4xl font-normal font-mono">Form a Team</div>
-              <div class="text-center text-white text-lg font-bold">Create one with friends<br/>or join one with strangers!</div>
+      <div
+        class="p-2.5 justify-center items-start md:flex-row flex-col gap-2.5 flex w-screen"
+      >
+        <div
+          class="p-10 bg-neutral-900 flex-col w-full justify-start items-center gap-2.5 inline-flex"
+        >
+          <Twemoji className="w-32 h-32" emoji="🤝" />
+          <div class="text-center text-white text-4xl font-normal font-mono">
+            Form a Team
           </div>
-          <div class="p-10 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
-              <Twemoji className="w-32 h-32" emoji="🤔" />
-              <div class="text-center text-white text-4xl font-normal font-mono">Propose Your Idea</div>
-              <div class="text-center text-white text-lg font-bold">Think of something you want to work on,<br/>optionally from one of our themes.</div>
+          <div class="text-center text-white text-lg">
+            Create one with friends<br />or join one with strangers!
           </div>
-          <div class="p-10 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
-              <Twemoji className="w-32 h-32" emoji="🏗️" />
-              <div class="text-center text-white text-4xl font-normal font-mono">Make the Thing</div>
-              <div class="text-center text-white text-lg font-bold">Now build it!<br/>You have 24 hours.</div>
+        </div>
+        <div
+          class="p-10 bg-neutral-900 flex-col w-full justify-start items-center gap-2.5 inline-flex"
+        >
+          <Twemoji className="w-32 h-32" emoji="🤔" />
+          <div class="text-center text-white text-4xl font-normal font-mono">
+            Propose Your Idea
           </div>
+          <div class="text-center text-white text-lg">
+            Think of something you want to work on,<br />optionally from one of
+            our themes.
+          </div>
+        </div>
+        <div
+          class="p-10 bg-neutral-900 flex-col w-full justify-start items-center gap-2.5 inline-flex"
+        >
+          <Twemoji className="w-32 h-32" emoji="🏗️" />
+          <div class="text-center text-white text-4xl font-normal font-mono">
+            Make the Thing
+          </div>
+          <div class="text-center text-white text-lg">
+            Now build it!<br />You have 24 hours.
+          </div>
+        </div>
       </div>
       <div class="flex-col justify-start items-center gap-3 flex">
-          <div class="text-center text-white text-2xl font-black">HampHack is</div>
-          <div class="text-white text-7xl font-normal font-mono">For everyone</div>
+        <div class="text-white md:text-7xl text-4xl font-normal font-mono">
+          For everyone
+        </div>
       </div>
-      <div class="self-stretch p-2.5 justify-center items-start gap-2.5 inline-flex">
-          <div class="px-10 py-5 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
-              <div class="text-center text-white text-4xl font-normal font-mono">Beginner?</div>
-              <div class="text-center text-white text-lg font-bold">Awesome!! Come learn<br/>something new.</div>
+      <div
+        class="p-2.5 justify-center items-start md:flex-row flex-col gap-2.5 flex w-screen"
+      >
+        <div
+          class="px-10 py-5 w-full bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex"
+        >
+          <div class="text-center text-white text-4xl font-normal font-mono">
+            Beginner?
           </div>
-          <div class="px-10 py-5 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
-              <div class="text-center text-white text-4xl font-normal font-mono">Familiar?</div>
-              <div class="text-center text-white text-lg font-bold">Great! Lets expand your<br/>horizons.</div>
+          <div class="text-center text-white text-lg">
+            Awesome! Come learn<br />something new.
           </div>
-          <div class="px-10 py-5 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
-              <div class="text-center text-white text-4xl font-normal font-mono">Experienced?</div>
-              <div class="text-center text-white text-lg font-bold">Amazing! Show off your<br/>talent, or help others.</div>
+        </div>
+        <div
+          class="px-10 py-5 w-full bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex"
+        >
+          <div class="text-center text-white text-4xl font-normal font-mono">
+            Familiar?
           </div>
+          <div class="text-center text-white text-lg">
+            Great! Lets expand your<br />horizons.
+          </div>
+        </div>
+        <div
+          class="px-10 py-5 w-full bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex"
+        >
+          <div class="text-center text-white text-4xl font-normal font-mono">
+            Experienced?
+          </div>
+          <div class="text-center text-white text-lg">
+            Amazing! Show off your<br />talent, or help others.
+          </div>
+        </div>
       </div>
       <div class="flex-col justify-start items-center gap-3 flex">
-          <div class="text-white text-7xl font-normal font-mono">FAQ</div>
+        <div class="text-white md:text-7xl text-4xl font-normal font-mono">
+          FAQ
+        </div>
       </div>
-      <div class="self-stretch h-[1150px] px-32 py-2.5 flex-col justify-start items-center gap-4 flex">
-          <div class="self-stretch h-[194px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
-              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">I see &quot;Hack&quot; in the name. Is this about computers?</div>
-              <div class="text-center text-white text-xl font-bold">Nope! We use the word &quot;Hack&quot; loosely, attributed with &quot;Hackathon&quot;.<br/>This is an event to show off your talents to simply make something cool!</div>
+      <div
+        class="self-stretch md:px-32 px-2.5 py-2.5 flex-col justify-start items-center gap-4 flex"
+      >
+        <div
+          class="self-stretch px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex"
+        >
+          <div
+            class="self-stretch text-center text-white md:text-5xl text-3xl font-normal font-mono"
+          >
+            I see &quot;Hack&quot; in the name. Is this about computers?
           </div>
-          <div class="self-stretch h-[242px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
-              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">I don&apos;t know how to code. Is this event right for me?</div>
-              <div class="text-center text-white text-xl font-bold">Absolutely! You can learn some basics,<br/>or you can bring your unique talents to a team!<br/>We encourage beginners to come.</div>
+          <div class="text-center text-white md:text-xl text-lg">
+            Nope! We use the word &quot;Hack&quot; loosely, attributed with
+            &quot;Hackathon&quot;.<br />This is an event to show off your
+            talents to simply make something cool!
           </div>
-          <div class="self-stretch h-[194px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
-              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">Will there be food?</div>
-              <div class="text-center text-white text-xl font-bold">Yup! We&apos;ll be providing catered food. If you have an allergy,<br/>please let us know in your registration!</div>
+        </div>
+        <div
+          class="self-stretch px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex"
+        >
+          <div
+            class="self-stretch text-center text-white md:text-5xl text-3xl font-normal font-mono"
+          >
+            I don&apos;t know how to code. Is this event right for me?
           </div>
-          <div class="self-stretch h-[290px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
-              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">I have an accessibility need, will I be okay?</div>
-              <div class="text-center text-white text-xl font-bold">We will try our best to accommodate to your needs. The event is taking place<br/>at the R.W. Kern Center at Hampshire College, which is an ADA-compliant<br/>building. Please let us know what accommodations you may need ahead of time<br/>in your registration.</div>
+          <div class="text-center text-white md:text-xl text-lg">
+            Absolutely! You can learn some basics,<br />or you can bring your
+            unique talents to a team!<br />We encourage beginners to come.
           </div>
-          <div class="self-stretch h-[146px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
-              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">Are there any restrictions on who can participate?</div>
-              <div class="text-center text-white text-xl font-bold">You must be over 18. Nothing personal, just bureaucracy.</div>
+        </div>
+        <div
+          class="self-stretch px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex"
+        >
+          <div
+            class="self-stretch text-center text-white md:text-5xl text-3xl font-normal font-mono"
+          >
+            Will there be food?
           </div>
+          <div class="text-center text-white md:text-xl text-lg">
+            Yup! We&apos;ll be providing catered food. If you have an allergy,<br
+            />please let us know in your registration!
+          </div>
+        </div>
+        <div
+          class="self-stretch px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex"
+        >
+          <div
+            class="self-stretch text-center text-white md:text-5xl text-3xl font-normal font-mono"
+          >
+            I have an accessibility need, will I be okay?
+          </div>
+          <div class="text-center text-white md:text-xl text-lg">
+            We will try our best to accommodate to your needs. The event is
+            taking place<br />at the R.W. Kern Center at Hampshire College.
+            Please let us know what accommodations you may need ahead of time<br
+            />in your registration.
+          </div>
+        </div>
+        <div
+          class="self-stretch px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex"
+        >
+          <div
+            class="self-stretch text-center text-white md:text-5xl text-3xl font-normal font-mono"
+          >
+            Are there any restrictions on who can participate?
+          </div>
+          <div class="text-center text-white md:text-xl text-lg">
+            You must be over 18. Nothing personal, just bureaucracy.
+          </div>
+        </div>
       </div>
+    </div>
   </div>
-  </header>
 </Layout>
