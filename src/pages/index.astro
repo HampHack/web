@@ -1,492 +1,157 @@
 ---
-import {
-  PaintBrushIcon,
-  CodeBracketIcon,
-  WrenchScrewdriverIcon,
-  TrophyIcon,
-  CalendarDaysIcon,
-  MapIcon,
-  QuestionMarkCircleIcon,
-} from "@heroicons/react/24/solid/index.js";
+import { ArrowDownIcon } from "@heroicons/react/24/outline";
 import Layout from "../components/Layout.astro";
-import { readdirSync } from "node:fs";
-import sharp from "sharp";
-import Combine from "../components/Combine";
-import { BriefcaseIcon } from "@heroicons/react/24/outline";
+import Twemoji from "../components/Twemoji";
+// import { readdirSync } from "node:fs";
+// import sharp from "sharp";
 
-const Info = [
-  "72 hours",
-  "April 21-23, 6 PM to 6 PM",
-  "Franklin Patterson Hall @ HC",
-];
-const fields = [
-  {
-    Icon: PaintBrushIcon,
-    title: "Art",
-    link: "/categories/art",
-  },
-  {
-    Icon: CodeBracketIcon,
-    title: "Technology",
-    link: "/categories/technology",
-  },
-  {
-    Icon: WrenchScrewdriverIcon,
-    title: "Engineering",
-    link: "/categories/engineering",
-  },
-];
+// const files = readdirSync("./public/img");
+// const images = [];
+// for (const file of files) {
+//   const img = sharp(`./public/img/${file}`);
+//   const { width, height } = await img.metadata();
 
-const basics = [
-  {
-    Icon: TrophyIcon,
-    title: "Prizes",
-    body: "HampHack isn't competitive, but who doesn't like prizes?",
-    link: "/prizes",
-  },
-  {
-    Icon: CalendarDaysIcon,
-    title: "Schedule",
-    body: "Visit our schedule and see what workshops you could attend!",
-    link: "/schedule",
-  },
-  {
-    Icon: MapIcon,
-    title: "Map",
-    body: "You probably won't be lost at Hampshire, but we have your back!",
-    link: "https://www.hampshire.edu/campus-map",
-  },
-];
+//   if (!width || !height) continue;
 
-const sponsors = {
-  silver: [
-    {
-      name: "Hampshire College",
-      subtext: "President's Office, Information Technology",
-      link: "https://www.hampshire.edu",
-      image: "hampshire.png",
-    },
-    {
-      name: "Netlify",
-      subtext: "Serverless + Static Hosting",
-      link: "https://www.netlify.com",
-      image: "netlify.svg",
-    },
-    {
-      name: "Obviously.ai",
-      subtext: "AI-powered Data Analysis",
-      link: "https://www.obviously.ai",
-      image: "obviouslyai.svg",
-    },
-  ],
-  bronze: [
-    {
-      name: "Hampshire College",
-      subtext: "SPARC",
-      link: "https://www.hampshire.edu/",
-      image: "hampshire.png",
-    },
-  ],
-  other: [
-    {
-      name: "StickerMule",
-      subtext: "Custom Stickers",
-      link: "https://mule.to/p3za",
-      image: "stickermule.svg",
-    },
-  ],
-};
-
-const files = readdirSync("./public/img");
-const images = [];
-for (const file of files) {
-  const img = sharp(`./public/img/${file}`);
-  const { width, height } = await img.metadata();
-
-  if (!width || !height) continue;
-
-  if (width > height) {
-    images.push({
-      image: file,
-      type: "horizontal",
-    });
-  } else {
-    images.push({
-      image: file,
-      type: "vertical",
-    });
-  }
-}
+//   if (width > height) {
+//     images.push({
+//       image: file,
+//       type: "horizontal",
+//     });
+//   } else {
+//     images.push({
+//       image: file,
+//       type: "vertical",
+//     });
+//   }
+// }
 ---
 
 <Layout>
-  <section
-    class="flex flex-wrap justify-center items-center w-full md:py-36 py-12 space-y-10 md:px-16"
-  >
-    <h1
-      class="flex w-full text-center justify-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
-    >
-      Hamp
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1080 1080"
-        class="md:h-12 h-8 transition hover:rotate-180 duration-200"
-        aria-label="HampHack Lightning Bolt"
+  <header class="px-2.5 py-32 flex-col justify-center items-center gap-8 flex">
+    <div class="inline-flex flex-col justify-start items-center gap-4">
+      <h1 class="relative overflow-hidden inline-block align-bottom font-mono text-8xl text-white gradient">Build Something Cool</h1>
+      <span class="text-center text-white text-2xl font-black">at</span>
+      <h1
+        class="flex w-full text-center justify-center items-center uppercase font-black md:text-6xl text-4xl dark:text-white text-black"
       >
-        <defs>
-          <style>
-            .c {
-              fill: #61ff61;
-            }
-          </style>
-        </defs>
-        <g id="a">
-          <path
-            class="c"
-            d="M890.57,404.25h-278.6c-15.11,0-27.36-12.25-27.36-27.36V27.41c0-27.84-36.72-37.89-50.91-13.95L165.89,634.44c-10.8,18.24,2.34,41.31,23.54,41.31H468.03c15.11,0,27.36,12.25,27.36,27.36v349.48c0,27.84,36.72,37.89,50.91,13.95L914.11,445.56c10.8-18.24-2.34-41.31-23.54-41.31Z"
-          >
-          </path>
-        </g>
-        <g id="b"></g>
-      </svg>
-      Hack
-    </h1>
-
-    <h2
-      class="font-bold w-full md:text-4xl text-2xl text-center dark:text-white text-black"
-    >
-      The Pioneer Valley&apos;s
-      <span class="animated-underline dark:text-green-50">only</span>
-      Interdisciplinary
-      <span
-        title="A hackathon is an event where people come together to build something cool."
-        class="cursor-help"
-      >
-        Hackathon<span class="dark:text-green-50">*</span>
-      </span>
-    </h2>
-
-    <div>
-      <Combine client:load />
+        Hamp
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1080 1080"
+          class="md:h-12 h-8"
+          aria-label="HampHack Lightning Bolt"
+        >
+          <defs>
+            <style>
+              .c {
+                fill: #61ff61;
+              }
+            </style>
+          </defs>
+          <g id="a">
+            <path
+              class="c"
+              d="M890.57,404.25h-278.6c-15.11,0-27.36-12.25-27.36-27.36V27.41c0-27.84-36.72-37.89-50.91-13.95L165.89,634.44c-10.8,18.24,2.34,41.31,23.54,41.31H468.03c15.11,0,27.36,12.25,27.36,27.36v349.48c0,27.84,36.72,37.89,50.91,13.95L914.11,445.56c10.8-18.24-2.34-41.31-23.54-41.31Z"
+            >
+            </path>
+          </g>
+          <g id="b"></g>
+        </svg>
+        Hack
+      </h1>
     </div>
 
-    <div class="flex justify-center w-full">
-      <ul
-        class="grid md:grid-cols-3 max-w-5xl md:divide-x-2 divide-y-2 md:divide-y-0 divide-green w-full justify-center"
-      >
-        {
-          Info.map((i) => (
-            <li class="font-semibold md:px-3 py-3 md:py-0 text-xl text-center dark:text-white text-black">
-              <span class="animated-underline">{i}</span>
-            </li>
-          ))
-        }
-      </ul>
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSf2ozqZ9vJpGBHVP7DfQ80xmVKKqDc4LE-ui5s3DGVOlOYlLA/viewform"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="px-6 py-2 bg-green-500 rounded-xl justify-center items-center gap-2.5 inline-flex"
+    >
+      <div class="text-black text-2xl font-normal font-mono">Register Now</div>
+    </a>
+
+    <div class="flex-col justify-center items-center gap-3 inline-flex">
+      <div class="text-center text-white text-xl font-black">
+        March 29th - March 31st
+      </div>
+      <div class="text-center text-white text-xl font-black">
+        R.W. Kern Center, Hampshire College
+      </div>
     </div>
 
-    <p class="text-center text-sm mt-4 text-green-50">
-      <span class="font-semibold">*</span>
-      <span>
-        A hackathon is an event where people come together to build something
-        cool.
-      </span>
-    </p>
-
-    <section
-      id="gallery"
-      class="md:flex hidden flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
-    >
-      <div class="grid md:grid-cols-3 grid-cols-2 gap-3 max-w-7xl">
-        {
-          images.map(({ image, type }) => (
-            <img
-              src={`/img/${image}`}
-              class={`w-full h-full object-cover ${
-                type === "vertical" ? "md:row-span-2 row-span-1" : ""
-              } justify-self-center md:col-span-1 col-span-2`}
-              alt="HampHack Gallery Image"
-              loading="lazy"
-              decoding="async"
-            />
-          ))
-        }
+    <div class="flex-col justify-end items-center gap-2.5 inline-flex mt-36">
+      <div class="flex-col justify-center items-center gap-2 flex">
+        <div class="text-white text-2xl font-normal font-mono">Read More</div>
+        <ArrowDownIcon className="text-white h-6 w-6 animate-bounce" />
       </div>
+    </div>
 
-      <p class="text-center text-sm mt-4 text-slate-300">
-        <span> These photos are from 2016 and 2017.</span>
-      </p>
-    </section>
-
-    <section
-      class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
-    >
-      <h1
-        class="font-bold text-3xl dark:text-white text-black animated-underline"
-      >
-        Interdisciplinary?
-      </h1>
-
-      <div class="w-full flex justify-center">
-        <h2
-          class="font-medium text-xl text-center max-w-xl dark:text-white text-black"
-        >
-          Come meet people interested in real world creative problem solving and
-          design via the intersections of computer science, art, and
-          engineering.
-        </h2>
+    <div class="px-2.5 py-16 flex-col justify-start items-center gap-12 inline-flex">
+      <div class="flex-col justify-start items-center gap-3 flex">
+          <span class="text-center text-white text-2xl font-black">HampHack is</span>
+          <h1 class="text-white text-7xl font-normal font-mono">An Interdisciplinary Creative Event</h1>
       </div>
-
-      <div class="grid md:grid-cols-3 gap-8 w-full max-w-7xl">
-        {
-          fields.map((field) => (
-            <div class="flex flex-wrap px-4 justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
-              <field.Icon className="dark:text-white text-black max-h-24 w-full" />
-              <h3 class="font-semibold w-full text-center text-4xl dark:text-white text-black">
-                {field.title}
-              </h3>
-
-              <a
-                href={field.link}
-                class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
-              >
-                Read More
-              </a>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-
-    <section
-      id="sponsors"
-      class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
-    >
-      <h1
-        class="font-bold text-3xl w-full text-center dark:text-white text-black"
-      >
-        <span class="animated-underline">Our Sponsors</span>
-      </h1>
-
-      <div class="grid md:grid-cols-3 gap-8 w-full max-w-7xl">
-        <div
-          class="flex flex-wrap md:col-span-2 justify-center items-center gap-y-4 px-4 dark:bg-black-400 bg-gray-200 py-8"
-        >
-          <h2 class="font-semibold text-4xl dark:text-white text-black">
-            Silver Sponsors
-          </h2>
-
-          <ul
-            class="grid md:grid-cols-3 sm:grid-cols-2 items-center gap-8 w-full max-w-3xl justify-center"
-          >
-            {
-              sponsors.silver.map((sponsor) => (
-                <li class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
-                  <img
-                    src={`/sponsors/${sponsor.image}`}
-                    class="w-full object-contain"
-                    alt={sponsor.name}
-                    loading="lazy"
-                    decoding="async"
-                  />
-
-                  {sponsor.subtext && (
-                    <h3 class="font-semibold w-full text-center text-xl dark:text-white text-black">
-                      {sponsor.subtext}
-                    </h3>
-                  )}
-
-                  <a
-                    href={sponsor.link}
-                    target="_blank"
-                    class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
-                  >
-                    Visit
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <div
-          class="flex flex-wrap justify-center items-center gap-y-4 px-4 dark:bg-black-400 bg-gray-200 py-8"
-        >
-          <h2
-            class="font-semibold text-4xl text-center dark:text-white text-black"
-          >
-            Bronze Sponsors
-          </h2>
-
-          <ul class="grid grid-cols-1 gap-4 w-full max-w-3xl justify-center">
-            {
-              sponsors.bronze.map((sponsor) => (
-                <li class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
-                  <img
-                    src={`/sponsors/${sponsor.image}`}
-                    class="w-full  object-contain"
-                    alt={sponsor.name}
-                    loading="lazy"
-                    decoding="async"
-                  />
-
-                  {sponsor.subtext && (
-                    <h3 class="font-semibold w-full text-center text-xl dark:text-white text-black">
-                      {sponsor.subtext}
-                    </h3>
-                  )}
-
-                  <a
-                    href={sponsor.link}
-                    target="_blank"
-                    class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
-                  >
-                    Visit
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <div
-          class="flex flex-wrap col-span-full justify-center items-center gap-y-4 px-4 dark:bg-black-400 bg-gray-200 py-8"
-        >
-          <h2
-            class="font-semibold w-full text-center text-4xl dark:text-white text-black"
-          >
-            Other Sponsors
-          </h2>
-
-          <ul class="grid grid-cols-3 gap-4 w-full max-w-3xl justify-center">
-            {
-              sponsors.other.map((sponsor) => (
-                <li class="flex flex-wrap justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8">
-                  <img
-                    src={`/sponsors/${sponsor.image}`}
-                    class="w-full object-contain"
-                    alt={sponsor.name}
-                    loading="lazy"
-                    decoding="async"
-                  />
-
-                  {sponsor.subtext && (
-                    <h3 class="font-semibold w-full text-center text-xl dark:text-white text-black">
-                      {sponsor.subtext}
-                    </h3>
-                  )}
-
-                  <a
-                    href={sponsor.link}
-                    target="_blank"
-                    class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
-                  >
-                    Visit
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section
-      class="flex flex-wrap justify-center items-center w-full space-y-4 md:px-36 px-8"
-    >
-      <h1
-        class="font-bold text-3xl w-full text-center dark:text-white text-black"
-      >
-        <span class="animated-underline">Make stuff, win stuff</span>
-      </h1>
-
-      <div class="grid md:grid-cols-6 gap-8 w-full max-w-7xl">
-        {
-          basics.map((basic) => (
-            <div class="flex flex-wrap col-span-2 justify-center items-center gap-y-4 px-4 dark:bg-black-400 bg-gray-200 py-8">
-              <basic.Icon className="dark:text-white text-black max-h-24 w-full" />
-              <h2 class="font-semibold text-4xl dark:text-white text-black">
-                {basic.title}
-              </h2>
-
-              <p class="font-medium text-xl text-center max-w-xl dark:text-white text-black">
-                {basic.body}
-              </p>
-
-              <a
-                href={basic.link}
-                class="font-medium text-lg text-center max-w-xl dark:text-green text-blue-800 animated-underline"
-              >
-                Visit
-              </a>
-            </div>
-          ))
-        }
-
-        <div
-          class="flex flex-wrap col-span-3 px-4 justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8"
-        >
-          <BriefcaseIcon
-            className="dark:text-white text-black max-h-32 w-full"
-          />
-          <h2
-            class="font-semibold text-4xl w-full text-center dark:text-white text-black"
-          >
-            Workshops
-          </h2>
-
-          <p
-            class="font-medium text-xl text-center max-w-xl dark:text-white text-black"
-          >
-            We'll be hosting workshops throughout the event to help you learn
-            new skills and build your projects.
-          </p>
-
-          <div class="flex w-full space-x-4 justify-center">
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLScyLo0G3qrUJX1v1FYEfz9NHp4xV2WAoQi5d-BqVZeCr2Mgkw/viewform?usp=sf_link"
-              target="_blank"
-              class="font-medium text-lg text-center dark:text-green text-blue-800"
-            >
-              <span class="animated-underline">Interest Form</span>
-            </a>
+      <div class="self-stretch p-2.5 justify-center items-start gap-2.5 inline-flex">
+          <div class="p-10 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
+              <Twemoji className="w-32 h-32" emoji="🤝" />
+              <div class="text-center text-white text-4xl font-normal font-mono">Form a Team</div>
+              <div class="text-center text-white text-lg font-bold">Create one with friends<br/>or join one with strangers!</div>
           </div>
-        </div>
-
-        <div
-          class="flex flex-wrap col-span-3 px-4 justify-center items-center gap-y-4 dark:bg-black-400 bg-gray-200 py-8"
-        >
-          <QuestionMarkCircleIcon
-            className="dark:text-white text-black max-h-32 w-full"
-          />
-          <h2
-            class="font-semibold text-4xl w-full text-center dark:text-white text-black"
-          >
-            Questions
-          </h2>
-
-          <p
-            class="font-medium text-xl text-center max-w-xl dark:text-white text-black"
-          >
-            Visit our FAQ, or send us an email. We don't bite!
-          </p>
-
-          <div class="flex w-full space-x-4 justify-center">
-            <a
-              href="/faq"
-              class="font-medium text-lg text-center dark:text-green text-blue-800"
-            >
-              <span class="animated-underline">Visit</span>
-            </a>
-
-            <a
-              href="mailto:hamphack@hampshire.edu"
-              class="font-medium text-lg text-center dark:text-green text-blue-800"
-            >
-              <span class="animated-underline">Email</span>
-            </a>
+          <div class="p-10 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
+              <Twemoji className="w-32 h-32" emoji="🤔" />
+              <div class="text-center text-white text-4xl font-normal font-mono">Propose Your Idea</div>
+              <div class="text-center text-white text-lg font-bold">Think of something you want to work on,<br/>optionally from one of our themes.</div>
           </div>
-        </div>
+          <div class="p-10 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
+              <Twemoji className="w-32 h-32" emoji="🏗️" />
+              <div class="text-center text-white text-4xl font-normal font-mono">Make the Thing</div>
+              <div class="text-center text-white text-lg font-bold">Now build it!<br/>You have 24 hours.</div>
+          </div>
       </div>
-    </section>
-  </section>
+      <div class="flex-col justify-start items-center gap-3 flex">
+          <div class="text-center text-white text-2xl font-black">HampHack is</div>
+          <div class="text-white text-7xl font-normal font-mono">For everyone</div>
+      </div>
+      <div class="self-stretch p-2.5 justify-center items-start gap-2.5 inline-flex">
+          <div class="px-10 py-5 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
+              <div class="text-center text-white text-4xl font-normal font-mono">Beginner?</div>
+              <div class="text-center text-white text-lg font-bold">Awesome!! Come learn<br/>something new.</div>
+          </div>
+          <div class="px-10 py-5 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
+              <div class="text-center text-white text-4xl font-normal font-mono">Familiar?</div>
+              <div class="text-center text-white text-lg font-bold">Great! Lets expand your<br/>horizons.</div>
+          </div>
+          <div class="px-10 py-5 bg-neutral-900 flex-col justify-start items-center gap-2.5 inline-flex">
+              <div class="text-center text-white text-4xl font-normal font-mono">Experienced?</div>
+              <div class="text-center text-white text-lg font-bold">Amazing! Show off your<br/>talent, or help others.</div>
+          </div>
+      </div>
+      <div class="flex-col justify-start items-center gap-3 flex">
+          <div class="text-white text-7xl font-normal font-mono">FAQ</div>
+      </div>
+      <div class="self-stretch h-[1150px] px-32 py-2.5 flex-col justify-start items-center gap-4 flex">
+          <div class="self-stretch h-[194px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
+              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">I see &quot;Hack&quot; in the name. Is this about computers?</div>
+              <div class="text-center text-white text-xl font-bold">Nope! We use the word &quot;Hack&quot; loosely, attributed with &quot;Hackathon&quot;.<br/>This is an event to show off your talents to simply make something cool!</div>
+          </div>
+          <div class="self-stretch h-[242px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
+              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">I don&apos;t know how to code. Is this event right for me?</div>
+              <div class="text-center text-white text-xl font-bold">Absolutely! You can learn some basics,<br/>or you can bring your unique talents to a team!<br/>We encourage beginners to come.</div>
+          </div>
+          <div class="self-stretch h-[194px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
+              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">Will there be food?</div>
+              <div class="text-center text-white text-xl font-bold">Yup! We&apos;ll be providing catered food. If you have an allergy,<br/>please let us know in your registration!</div>
+          </div>
+          <div class="self-stretch h-[290px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
+              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">I have an accessibility need, will I be okay?</div>
+              <div class="text-center text-white text-xl font-bold">We will try our best to accommodate to your needs. The event is taking place<br/>at the R.W. Kern Center at Hampshire College, which is an ADA-compliant<br/>building. Please let us know what accommodations you may need ahead of time<br/>in your registration.</div>
+          </div>
+          <div class="self-stretch h-[146px] px-10 py-5 bg-neutral-900 flex-col justify-center items-center gap-2.5 flex">
+              <div class="self-stretch text-center text-white text-4xl font-normal font-mono">Are there any restrictions on who can participate?</div>
+              <div class="text-center text-white text-xl font-bold">You must be over 18. Nothing personal, just bureaucracy.</div>
+          </div>
+      </div>
+  </div>
+  </header>
 </Layout>

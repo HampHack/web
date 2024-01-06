@@ -2,6 +2,16 @@
 import { SEO } from "astro-seo";
 import { Github, Discord } from "@icons-pack/react-simple-icons";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
+import "@fontsource/poppins/100.css";
+import "@fontsource/poppins/200.css";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/800.css";
+import "@fontsource/poppins/900.css";
+import "@fontsource/vt323/400.css";
 ---
 
 <html lang="en" class="dark">
@@ -30,25 +40,14 @@ import { EnvelopeIcon } from "@heroicons/react/24/solid";
       }}
     />
     <meta name="theme-color" content="#61ff61" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;900&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;900&display=swap"
-      /></noscript
-    >
 
     <style is:global>
       .animated-underline {
         @apply bg-gradient-to-r dark:from-green-500 dark:to-green-600 from-blue-700 to-blue-800  bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] motion-reduce:bg-[length:100%_6px] motion-reduce:transition-none duration-500 motion-safe:hover:bg-[length:100%_6px] motion-safe:group-hover:bg-[length:100%_6px];
+      }
+
+      .gradient {
+        @apply after:animate-underline-gradient after:bg-underline-gradient after:h-2 after:left-0 after:absolute after:bottom-0 after:w-[400%] after:will-change-transform after:-z-10;
       }
     </style>
 
@@ -66,151 +65,90 @@ import { EnvelopeIcon } from "@heroicons/react/24/solid";
     </script>
   </head>
   <body
-    class="dark:bg-black transition-colors duration-200 flex flex-col h-screen justify-between"
+    class="dark:bg-zinc-900 transition-colors duration-200 flex flex-col h-screen justify-between"
   >
-    <header class="px-8 py-12 flex w-full justify-center items-center md:px-16">
-      <div class="flex max-w-7xl w-full items-center justify-between">
-        <a href="/" aria-label="Homepage">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1080 1080"
-            class="h-16"
-            aria-label="HampHack Logo"
-          >
-            <g id="a">
-              <path
-                class="dark:fill-white fill-black"
-                d="M565.28,237.82V842.42h-189.58v-235.69H195.51v235.69H5.93V237.82H195.51v217.76h180.19V237.82h189.58Z"
-              ></path>
-              <path
-                class="fill-green"
-                d="M1058.77,464.34h-155.52c-8.44,0-15.28-6.84-15.28-15.28V253.97c0-15.54-20.5-21.15-28.42-7.78l-205.32,346.65c-6.03,10.18,1.31,23.06,13.14,23.06h155.52c8.44,0,15.28,6.84,15.28,15.28v195.09c0,15.54,20.5,21.15,28.42,7.78l205.32-346.65c6.03-10.18-1.31-23.06-13.14-23.06Z"
-              ></path>
-            </g>
-          </svg>
-        </a>
-
-        <div class="flex space-x-8">
-          <a
-            class="font-bold text-3xl dark:text-green-50 animated-underline"
-            aria-label="Register"
-            href="/register"
-          >
-            Register
-          </a>
-        </div>
-      </div>
-    </header>
-
     <main class="space-y-8">
       <slot />
     </main>
 
-    <footer
-      class="flex py-4 mt-8 px-4 dark:bg-black-400 bg-gray-200 justify-center"
-    >
+    <footer class="py-6 px-4 bg-neutral-900 flex justify-center">
       <div
-        class="flex gap-4 md:flex-nowrap flex-wrap md:justify-between justify-center items-center w-full max-w-7xl"
+        class="flex md:justify-between max-w-7xl w-full gap-y-2 justify-center flex-wrap md:flex-nowrap items-center self-stretch"
       >
-        <div
-          class="flex items-center gap-y-2 md:flex-nowrap flex-wrap gap-x-4 md:w-auto w-full"
-        >
-          <div class="flex gap-x-4 w-full justify-center items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1080 1080"
-              class="md:h-12 h-8 transition hover:rotate-180 duration-200 justify-self-center md:justify-self-start"
-              aria-label="HampHack Lightning Bolt"
-            >
-              <defs>
-                <style>
-                  .c {
-                    fill: #61ff61;
-                  }
-                </style>
-              </defs>
-              <g id="a">
-                <path
-                  class="c"
-                  d="M890.57,404.25h-278.6c-15.11,0-27.36-12.25-27.36-27.36V27.41c0-27.84-36.72-37.89-50.91-13.95L165.89,634.44c-10.8,18.24,2.34,41.31,23.54,41.31H468.03c15.11,0,27.36,12.25,27.36,27.36v349.48c0,27.84,36.72,37.89,50.91,13.95L914.11,445.56c10.8-18.24-2.34-41.31-23.54-41.31Z"
-                >
-                </path>
-              </g>
-              <g id="b"></g>
-            </svg>
+        <div class="flex items-center gap-6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-12"
+            viewBox="0 0 1080 1080"
+            ><defs
+              ><style>
+                .c {
+                  fill: #61ff61;
+                }
+              </style></defs
+            ><g id="a"
+              ><path
+                class="c"
+                d="M890.57,404.25h-278.6c-15.11,0-27.36-12.25-27.36-27.36V27.41c0-27.84-36.72-37.89-50.91-13.95L165.89,634.44c-10.8,18.24,2.34,41.31,23.54,41.31H468.03c15.11,0,27.36,12.25,27.36,27.36v349.48c0,27.84,36.72,37.89,50.91,13.95L914.11,445.56c10.8-18.24-2.34-41.31-23.54-41.31Z"
+              ></path></g
+            ><g id="b"></g></svg
+          >
 
-            <a
-              class="dark:text-white text-black hover:text-green duration-150 transition-colors text-sm md:text-left text-center"
-              href="https://github.com/HampHack"
-              aria-label="GitHub"
-            >
-              <Github />
-            </a>
+          <a
+            href="/code-of-conduct"
+            class="font-mono text-white text-2xl animated-underline"
+          >
+            Code of Conduct
+          </a>
 
-            <a
-              class="dark:text-white text-black hover:text-green duration-150 transition-colors text-sm md:text-left text-center"
-              href="https://discord.gg/8QZK5N5uWP"
-              aria-label="Discord"
-            >
-              <Discord />
-            </a>
+          <a
+            href="https://hcb.hackclub.com/donations/start/hamphack-ad92532b-a53e-4df2-9813-dddd79e2d6cc"
+            rel="noreferrer"
+            target="_blank"
+            class="font-mono text-white text-2xl animated-underline"
+          >
+            Donate
+          </a>
 
-            <a
-              class="dark:text-white text-black hover:text-green duration-150 transition-colors text-sm md:text-left text-center"
-              href="mailto:hamphack@hampshire.edu"
-              aria-label="Email"
-            >
-              <EnvelopeIcon className="h-6 w-6" />
-            </a>
-          </div>
+          <a
+            href="https://github.com/HampHack"
+            rel="noreferrer"
+            target="_blank"
+            class="font-mono text-white text-2xl"
+          >
+            <Github />
+          </a>
 
-          <div class="flex gap-x-4 w-full justify-center items-center">
-            <a
-              class="dark:text-white text-black hover:text-green duration-150 transition-colors text-sm md:text-left text-center"
-              href="/code-of-conduct"
-            >
-              Code of Conduct
-            </a>
+          <a
+            href="https://discord.gg/5QZb3XZ"
+            rel="noreferrer"
+            target="_blank"
+            class="font-mono text-white text-2xl"
+          >
+            <Discord />
+          </a>
 
-            <a
-              class="dark:text-white text-black hover:text-green duration-150 transition-colors text-sm md:text-left text-center"
-              href="/budget"
-            >
-              Budget
-            </a>
-
-            <a
-              class="dark:text-white text-black hover:text-green duration-150 transition-colors text-sm md:text-left text-center"
-              href="/donate"
-            >
-              Donate
-            </a>
-          </div>
+          <a
+            href="mailto:hamphack@hampshire.edu"
+            rel="noreferrer"
+            target="_blank"
+            class="font-mono text-white text-2xl"
+          >
+            <EnvelopeIcon className="h-6" />
+          </a>
         </div>
 
-        <div>
-          <p
-            class="dark:text-white text-black text-sm md:text-right text-center"
+        <div class="text-white text-sm font-semibold">
+          Fiscally sponsored by The Hack Foundation. Nonprofit EIN: 81-2908499.<br
+          />© 2023 HampHack. All rights reserved.
+          <a
+            href="/privacy"
+            class="text-green-50 hover:text-green-200 transition-colors duration-200"
           >
-            Made with ❤️ in Amherst, MA.
-          </p>
-          <p
-            class="dark:text-white text-black text-sm md:text-right text-center"
+            Privacy Policy</a
           >
-            © {new Date().getFullYear()} HampHack. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
-
-    <noscript>
-      <img
-        src="https://shy.maatt.eu/ingress/743dcdce-4f69-4091-8a91-414e61e59ca4/pixel.gif"
-      />
-    </noscript>
-    <script
-      defer
-      src="https://shy.maatt.eu/ingress/743dcdce-4f69-4091-8a91-414e61e59ca4/script.js"
-    ></script>
   </body>
 </html>
