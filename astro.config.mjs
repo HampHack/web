@@ -20,6 +20,12 @@ export default defineConfig({
     react(),
     robotsTxt({
       sitemap: "https://hamphack.hampshire.edu/sitemap.xml",
+      policy: [
+        {
+          userAgent: "*",
+          allow: "/",
+        },
+      ],
     }),
     sitemap(),
   ],
