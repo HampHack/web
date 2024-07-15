@@ -746,6 +746,7 @@ __metadata:
     "@icons-pack/react-simple-icons": "npm:^6.2.0"
     "@tailwindcss/forms": "npm:^0.5.3"
     "@tailwindcss/typography": "npm:^0.5.10"
+    "@twemoji/api": "npm:^15.1.0"
     "@types/react": "npm:^18.0.21"
     "@types/react-dom": "npm:^18.0.6"
     "@types/react-image-gallery": "npm:^1.2.0"
@@ -768,7 +769,6 @@ __metadata:
     sharp: "npm:^0.31.3"
     slick-carousel: "npm:^1.8.1"
     tailwindcss: "npm:^3.4.1"
-    twemoji: "npm:^14.0.2"
   languageName: unknown
   linkType: soft
 
@@ -1274,6 +1274,25 @@ __metadata:
   peerDependencies:
     tailwindcss: "*"
   checksum: 0fa9c96bf091fb79fdc39a0244027b3891e9205f714197c8196e7ba2305523ce8695d14b912366de9b77d4b1d3a742fb7f9bc9bb633fddc7c7f13374b41075d2
+  languageName: node
+  linkType: hard
+
+"@twemoji/api@npm:^15.1.0":
+  version: 15.1.0
+  resolution: "@twemoji/api@npm:15.1.0"
+  dependencies:
+    "@twemoji/parser": "npm:15.1.0"
+    fs-extra: "npm:^8.0.1"
+    jsonfile: "npm:^5.0.0"
+    universalify: "npm:^0.1.2"
+  checksum: 615acb9c473f8e881f1f4397b3de1df3a721593da1c40db298748cbf7273e6a29cfbfdeb3fb2356710e9f9bd08dbe282ec5293d840cb1dc500ae5761735ae2a2
+  languageName: node
+  linkType: hard
+
+"@twemoji/parser@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@twemoji/parser@npm:15.1.0"
+  checksum: ee38a82b40f5bc945eaefd87e74da716446ad1d02e11de36ba4e6e3e24be0fccb96038b94ae09fc0ca2405d7324d1b25b37769d32264a9ef72758f025389f22c
   languageName: node
   linkType: hard
 
@@ -6592,25 +6611,6 @@ __metadata:
   dependencies:
     safe-buffer: "npm:^5.0.1"
   checksum: 4c7a1b813e7beae66fdbf567a65ec6d46313643753d0beefb3c7973d66fcec3a1e7f39759f0a0b4465883499c6dc8b0750ab8b287399af2e583823e40410a17a
-  languageName: node
-  linkType: hard
-
-"twemoji-parser@npm:14.0.0":
-  version: 14.0.0
-  resolution: "twemoji-parser@npm:14.0.0"
-  checksum: 22568ce100cac130131bb984088e7ee2e9ee917e8f1080826ae5b71adfb066289c847fa50028d5563f0c99651368ba61b9ebbb2cc6dc211ffb321904073099c2
-  languageName: node
-  linkType: hard
-
-"twemoji@npm:^14.0.2":
-  version: 14.0.2
-  resolution: "twemoji@npm:14.0.2"
-  dependencies:
-    fs-extra: "npm:^8.0.1"
-    jsonfile: "npm:^5.0.0"
-    twemoji-parser: "npm:14.0.0"
-    universalify: "npm:^0.1.2"
-  checksum: e98caf0df63477d25d9bbfbdc32774249310bb2f4c6f2e99f51fea9be74461dee517200ff1864ac858ea3ea45cd02979d6c3cef630fd1a60d1de61f97ff5e3bf
   languageName: node
   linkType: hard
 

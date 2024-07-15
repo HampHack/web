@@ -16,11 +16,20 @@ import * as Document from "../Code of Conduct.md";
     a {
       @apply text-blue-500;
     }
+
+    li {
+      @apply mb-2;
+    }
+
+    ul {
+      @apply list-disc list-inside;
+    }
   </style>
   <section
     id="policy"
-    class="text-white text-black space-y-2 mx-auto max-w-7xl px-8 md:px-16"
+    class="dark:text-white text-black py-8 space-y-2 mx-auto max-w-7xl px-8 md:px-16"
   >
+    <a href="/" class="text-blue-500">← Go back</a>
     <Document.Content />
   </section>
 </Layout>
