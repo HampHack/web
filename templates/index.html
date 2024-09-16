@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block nav %}{% endblock %}
+
+{% block content %}
+<!--<header id="hero">
+	<div>
+		<img src="{{ config.base_url }}/wordmark.svg" alt="Hamphack Hackathon">
+		<span><b>October 12 - October 13</b></span>
+		<span>R.W. Kern Center, Hampshire College</span>
+		<a href="{{ config.extra.event_register }}" data-umami-event="register_top"><button>Register</button></a>
+	</div>
+</header>-->
+<nav class="sticky">
+	<a href="#top"><img src="{{ config.base_url }}/wordmark.svg" alt="Hamphack Hackathon"></a>
+	<a href="{{ config.extra.event_register }}" data-umami-event="register_nav"><button>Register</button></a>
+</nav>
+<section class="full">
+	<div>
+		<h2>an inter-disciplinary creative event for all skill levels</h2>
+		<ol>
+			<li class="r">
+				<div>
+					<h3>form a team</h3>
+					<span>Create one with friends! Join one with strangers!</span>
+				</div>
+			</li>
+			<li class="y">
+				<div>
+					<h3>propose an idea</h3>
+					<span>Think of something you want to make!</span>
+					<span class="secondary">Optionally, with help from one of our themes.</span>
+				</div>
+			</li>
+			<li class="g">
+				<div>
+					<h3>get to work</h3>
+					<span>You have 24 hours... see what you can do!</span>
+				</div>
+			</li>
+		</ol>
+	</div>
+</section>
+<section class="full b">
+	<div>
+		<div>
+			<h2>frequently asked questions</h2>
+			<span>Still have questions? <a href="mailto:hamphack@hampshire.edu">Don't hesitate to reach out.</a></span>
+		</div>
+		<div>
+			<details>
+				<summary>I see "hack" in the name. Is this only about computers?</summary>
+				 Nope! We use the word "Hack" loosely. This is an event to show off your artistic, technological, or otherwise unique talents to make something cool! For example, a team could create a game, which could require an artist, programmer, and musician. 
+			</details>
+			<details>
+				<summary>I don't know how to code. Is this event a good fit for me?</summary>
+				Absolutely! You can learn some basics, or you can bring your skills to a team! We encourage beginners to come. 
+			</details>
+			<details>
+				<summary>Will there be food?</summary>
+				Yup! We'll be providing catered food. Let us know of any dietary restrictions in your registration. 
+			</details>
+			<details>
+				<summary>I have an accessibility need, will I be okay?</summary>
+				We will try our best to accommodate to your needs. The event is taking place at the <a href="https://sites.hampshire.edu/rwkerncenter/">R.W. Kern Center at Hampshire College</a>. Please let us know what accommodations you may need ahead of time in your registration. 
+			</details>
+			<details>
+				<summary>Are there any restrictions on who can participate?</summary>
+				You must be over 18 or a college student. Nothing personal, just bureaucracy. 
+			</details>
+		</div>
+	</div>
+</section>
+{% endblock %}

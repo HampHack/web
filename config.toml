@@ -1,0 +1,11 @@
+# The URL the site will be built for
+base_url = "https://hamphack.hampshire.edu"
+compile_sass = false
+build_search_index = false
+title= "HampHack"
+
+[markdown]
+highlight_code = false
+
+[extra]
+event_register= "https://docs.google.com/forms/d/e/1FAIpQLSf2ozqZ9vJpGBHVP7DfQ80xmVKKqDc4LE-ui5s3DGVOlOYlLA/viewform"

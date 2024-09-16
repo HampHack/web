@@ -11,26 +11,10 @@ Clone the repository:
     $ git clone https://github.com/HampHack/web.git
 ```
 
-Install packages:
+[Install Zola.](https://getzola.org)
+
+Run this site locally
 
 ```bash
-    $ yarn
-```
-
-_OR_
-
-```bash
-    $ npm install
-```
-
-Start:
-
-```bash
-    $ yarn dev
-```
-
-_OR_
-
-```bash
-    $ npm run dev
+    $ zola serve
 ```

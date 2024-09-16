@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" id="top">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" href="{{ config.base_url }}/style.css">
+		<link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,700|roboto-flex:400">
+		{%- set_global title = config.title %}
+		{%- if page.title %}
+			{%- set_global title = page.title ~ " - " ~ config.title %}
+		{%- elif section.title %}
+			{%- set_global title = section.title ~ " - " ~ config.title %}
+		{%- endif %}
+        {%- include "partials/seo.html" %}
+		<title>{{ title }}</title>
+		<link rel="preconnect" href="https://cdn.chocobun.net">
+		<link rel="preconnect" href="https://umami.chocobun.net">
+		<link rel="preconnect" href="https://fonts.bunny.net">
+	</head>
+	<body>
+		{%- block nav %}
+		<nav class="sticky">
+			<a href="/"><img src="{{ config.base_url }}/wordmark.svg" alt="Hamphack Hackathon"></a>
+			<a href="{{ config.extra.event_register }}" data-umami-event="register_nav"><button>Register</button></a>
+		</nav>
+		{%- endblock %}
+		{% block content %}{% endblock %}
+		<footer class="sxs">
+			<div>
+				<div>
+					<img src="{{ config.base_url }}/wordmark.svg" alt="Hamphack Hackathon">
+					<div class="sxs">
+						<a href="https://github.com/HampHack"><img src="{{ config.base_url }}/github.svg" alt="Link to GitHub organisation"></a>
+						<a href="mailto:hamphack@hampshire.edu"><img src="{{ config.base_url }}/email.svg" alt="Contact us"></a>
+					</div>
+					<a href="/conduct">code of conduct</a>
+					<a href="https://hcb.hackclub.com/donations/start/hamphack-ad92532b-a53e-4df2-9813-dddd79e2d6cc">donate</a>
+				</div>
+				<div>
+					<span>
+						Fiscally sponsored by The Hack Foundation. Nonprofit EIN: <code>81-2908499</code>.
+					</span>
+					<span>
+						© 2024 HampHack. All rights reserved. <a href="/privacy">Privacy Policy.</a>
+					</span>
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script defer src="https://umami.chocobun.net/script.js" data-domains="hamphack.hampshire.edu" data-website-id="98521c7b-9c05-4643-b6c1-36144a0417d5"></script>
+</html>
