@@ -1,0 +1,29 @@
+<meta name="og:title" content="{{ title }}">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="og:type" content="article">
+{%- if page %}
+<meta name="og:url" content="{{page.permalink}}">
+<link rel="canonical" href="{{page.permalink}}">
+{%- elif section %}
+<meta name="og:url" content="{{section.permalink}}">
+<link rel="canonical" href="{{section.permalink}}">
+{% endif -%}
+{%- if page.date %}
+<meta name="article:published_time" content="{{page.date}}">
+{% endif -%}
+{%- if page.updated %}
+<meta name="article:modified_time" content="{{page.updated}}">
+{% endif -%}
+<meta name="author" content="{{ config.author }}">
+<meta name="article:author" content="{{ config.author }}">
+{%- if page.description %}
+<meta name="description" content="{{page.description}}">
+<meta name="og:description" content="{{page.description}}">
+<meta name="twitter:description" content="{{page.description}}">
+{%- elif page.summary %}
+<meta name="description" content="{{page.summary}}">
+<meta name="og:description" content="{{page.summary}}">
+<meta name="twitter:description" content="{{page.description}}">
+{% endif -%}
+<meta name="twitter:card" content="summary">
+<meta name="og:locale" content="en_US">
