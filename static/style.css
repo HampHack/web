@@ -32,7 +32,7 @@ h3 { font-size: 1.3125rem; }
 	flex-direction: column;
 	justify-content: flex-end;
 	flex-grow: 1;
-	padding: 4rem;
+	padding: 3rem;
 	gap: 12px;
 }
 #hero > div img {
@@ -65,7 +65,7 @@ details > summary:marker { content: ""; }
 
 nav {
 	display: flex;
-	flex-flow: row;
+	flex-flow: column;
 	justify-content: space-between;
 	margin: 1rem auto;
 	max-width: 80%;
@@ -157,6 +157,7 @@ footer > div >:last-child {
 @media (min-width: 800px) {
 	nav { flex-flow: row; }
 	nav, footer > div, .full > div, main { max-width: 65%; }
+	#hero > div { padding: 4rem; }
 	footer { text-align: left; }
 	footer > div { flex-flow: row; }
 
