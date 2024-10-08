@@ -68,13 +68,14 @@ nav {
 	flex-flow: row;
 	justify-content: space-between;
 	margin: 1rem auto;
-	max-width: 65%;
+	max-width: 80%;
 	padding: 0 1rem;
 }
 
 footer {
 	background: #000;
 	padding: 1rem;
+	text-align: center;
 }
 footer img {
 	height: 1.5rem;
@@ -85,12 +86,15 @@ footer > div {
 	justify-content: space-between;
 	margin: 0 auto;
 	padding: 2rem 1rem;
-	max-width: 65%;
+	max-width: 80%;
 	width: 100%;
 }
 footer > div > div {
 	display: flex;
 	flex-flow: column;
+}
+footer > div > div >* {
+	margin: .5rem 0;
 }
 footer > div >:last-child {
 	font-size: 0.75rem;
@@ -99,7 +103,7 @@ footer > div >:last-child {
 
 .full > div, main {
 	margin: 0 auto;
-	max-width: 65%;
+	max-width: 80%;
 	padding: 2rem 1rem;
 }
 .full > div,
@@ -146,8 +150,14 @@ footer > div >:last-child {
 	opacity: .5;
 }
 
-.sxs { display: flex; }
+.sxs {
+	display: flex;
+	justify-content: center;
+}
 @media (min-width: 800px) {
+	nav { flex-flow: row; }
+	nav, footer > div, .full > div, main { max-width: 65%; }
+	footer { text-align: left; }
 	footer > div { flex-flow: row; }
 
 	.full h2 { max-width: 12ch; }
@@ -159,5 +169,8 @@ footer > div >:last-child {
 		margin-bottom: revert;
 		max-width: 50%;
 	}
-	.sxs { flex-flow: row; }
+	.sxs {
+		flex-flow: row;
+		justify-content: normal;
+	}
 }
